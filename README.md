@@ -11,6 +11,7 @@ Welcome to the setup guide for the **BaseCode** project. This guide will walk yo
 - [Available Scripts](#available-scripts)
 - [Project Structure](#project-structure)
 - [Recommended Development Workflow](#recommended-development-workflow)
+- [Dependencies](#dependencies)
 - [Additional Notes](#additional-notes)
 
 ## Prerequisites
@@ -143,6 +144,24 @@ Describe your project's directory structure here.
 3. Make code changes and see live updates in the running app.
 
 4. Use the provided scripts for cleaning, building, and testing the app.
+
+## Dependencies
+
+Here are some of the key dependencies used in this project along with their documentation links:
+
+- **[@react-navigation/bottom-tabs](https://reactnavigation.org/docs/bottom-tabs)**: Navigational component for creating bottom tab navigation.
+- **[@react-navigation/native](https://reactnavigation.org/docs/getting-started)**: Core library for navigation in React Native apps.
+- **[@react-navigation/native-stack](https://reactnavigation.org/docs/stack-navigator)**: Stack navigator for handling navigation in a stack-like manner.
+- **[@reduxjs/toolkit](https://redux-toolkit.js.org/)**: A toolset for efficient Redux development, including simplifying store setup and reducer logic.
+- **[axios](https://axios-http.com/docs/intro)**: A promise-based HTTP client for making requests to APIs.
+- **[react](https://reactjs.org/docs/getting-started.html)**: JavaScript library for building user interfaces.
+- **[react-native](https://reactnative.dev/docs/getting-started)**: Framework for building native mobile apps using React.
+- **[react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context)**: Provides a way to handle safe area insets.
+- **[react-native-screens](https://reactnative.dev/docs/navigation/native-stack#using-the-screens-package)**: Package for managing native views and screens in React Native navigation.
+- **[react-native-sensitive-info](https://github.com/mCodex/react-native-sensitive-info)**: Library for securely managing sensitive information in React Native apps.
+- **[react-redux](https://react-redux.js.org/introduction/quick-start)**: Official React bindings for Redux state management.
+- **[redux-persist](https://redux-toolkit.js.org/)**: Library for persisting Redux store data to local storage.
+- **[redux-persist-sensitive-storage](https://github.com/CodingZeal/redux-persist-sensitive-storage)**: Redux persist storage engine for sensitive data.
 
 ## Additional Notes
 
