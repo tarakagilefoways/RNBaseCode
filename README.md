@@ -32,7 +32,7 @@ Before you begin, ensure that you have the following software installed on your 
 2. Clone the repository to your local machine by running the following command:
 
    ```bash
-   git clone https://github.com/tarakagilefoways/RNBaseCode.git
+   git clone http://192.168.4.9/root/boilerplate-react-native.git
    ```
 
 3. Navigate to the project directory:
