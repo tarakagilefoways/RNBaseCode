@@ -1,25 +1,25 @@
 // In App.js in a new project
 
-import * as React from "react";
-import {View, Text} from "react-native";
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
-
-function HomeScreen() {
-  return (
-    <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+import * as React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import SignInForm from '../screen/SignIn';
 
 const Stack = createNativeStackNavigator();
 
-function AppStack() {
+function MainStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Home" component={SignInForm} />
     </Stack.Navigator>
+  );
+}
+
+function AppStack() {
+  return (
+    <NavigationContainer>
+      <MainStack />
+    </NavigationContainer>
   );
 }
 
