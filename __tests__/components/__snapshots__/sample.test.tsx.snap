@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sample Componenet Test Suit: Renders Correctly and Create Snapshot 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <Text>
+    Test
+  </Text>
+</View>
+`;

@@ -1,12 +1,14 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import styles from './styles';
-interface Props {}
+interface Props {
+  text: string;
+}
 const SampleComponent = (props: Props) => {
-  const {} = props;
+  const { text } = props;
   return (
     <View style={styles.component}>
-      <Text>{'Component'}</Text>
+      <Text>{text}</Text>
     </View>
   );
 };

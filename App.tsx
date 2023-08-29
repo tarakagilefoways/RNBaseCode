@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
-import { persistor, store } from './src/store/store.index';
+import store, { persistor } from './src/store/store.index';
 import { PersistGate } from 'redux-persist/integration/react';
 import AppStack from './src/router/root.index';
 

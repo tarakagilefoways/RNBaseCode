@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -9,13 +9,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import CreateSensitiveStorage from '../util/sensitiveInfo';
+import CreateSensitiveStorage from '../utils/sensitiveInfo';
+import RootReducer from './reducer';
 
-import AuthReducer from '../service/auth/slice';
-
-const rootReducer = combineReducers({
-  auth: AuthReducer.reducer,
-});
 const storage = CreateSensitiveStorage({
   keychainService: 'rrr',
   sharedPreferencesName: 'rrr',
@@ -24,9 +20,9 @@ const config = {
   key: 'root',
   storage,
 };
-const reducer = persistReducer(config, rootReducer);
+const reducer = persistReducer(config, RootReducer);
 
-export const store = configureStore({
+const store = configureStore({
   reducer: reducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -36,3 +32,4 @@ export const store = configureStore({
     }),
 });
 export const persistor = persistStore(store);
+export default store;

@@ -67,3 +67,5 @@ yarn-error.log
 
 # jest
 .jest/
+# sonar
+.scannerwork/

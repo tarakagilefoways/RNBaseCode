@@ -18,9 +18,7 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(REHYDRATE, (state) => {
-      console.log('in rehydrate', state);
-    });
+    builder.addCase(REHYDRATE, () => {});
   },
 });
 
