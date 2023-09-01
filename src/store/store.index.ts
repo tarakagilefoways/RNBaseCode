@@ -9,10 +9,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import CreateSensitiveStorage from '../utils/sensitiveInfo';
+import createSensitiveStorage from 'redux-persist-sensitive-storage';
 import RootReducer from './reducer';
 
-const storage = CreateSensitiveStorage({
+const storage = createSensitiveStorage({
   keychainService: 'rrr',
   sharedPreferencesName: 'rrr',
 });

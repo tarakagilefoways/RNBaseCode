@@ -1,0 +1,5 @@
+metro.config.js
+react-native.config.js
+babel.config.js
+/coverage
+jest.config.js

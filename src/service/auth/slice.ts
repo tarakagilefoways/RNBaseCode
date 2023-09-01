@@ -3,10 +3,14 @@ import { REHYDRATE } from 'redux-persist';
 
 export interface IAuthSlice {
   isLoading: boolean;
+  email: string;
+  password: string;
 }
 
 const initialState: IAuthSlice = {
   isLoading: false,
+  email: '',
+  password: '',
 };
 
 const authSlice = createSlice({
@@ -23,4 +27,4 @@ const authSlice = createSlice({
 });
 
 export const { loaderChange } = authSlice.actions;
-export default authSlice;
+export const { reducer: authReducer } = authSlice;

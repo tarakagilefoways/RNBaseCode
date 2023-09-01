@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sign In Form Test Suit: Renders Correctly and Create Snapshot 1`] = `
+exports[`Sign In Form Snapshot Renders Correctly and Create Snapshot 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
   style={

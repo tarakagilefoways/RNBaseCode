@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 
 import { SignInTIDS } from '../../types/testIds';
-// import { MainStackParamList } from '../../router/root.index';
 import styles from './styles';
-// import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
+import { RootStoreType, useAppSelector } from '../../store/store.hooks';
 
 interface SignInFormData {
   email: string;
   password: string;
 }
-// type Props = NativeStackScreenProps<MainStackParamList, 'SignInForm'>;
 
 const SignInForm = () => {
   const navigation = useNavigation();
+  const { email, password } = useAppSelector(
+    (state: RootStoreType) => state.auth,
+  );
+
   const {
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<SignInFormData>();
+
+  useLayoutEffect(() => {
+    reset({ email: email, password: password });
+    return () => {};
+  }, [email, password, reset]);
 
   const onSubmit = (data: SignInFormData) => {
     console.log(data); // You can replace this with your sign-in logic

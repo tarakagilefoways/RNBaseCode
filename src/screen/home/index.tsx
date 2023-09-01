@@ -5,8 +5,7 @@ import { MainStackParamList } from '../../router/root.index';
 
 type Props = NativeStackScreenProps<MainStackParamList, 'Home'>;
 
-const Home = (props: Props) => {
-  const {} = props;
+const Home = (_props: Props) => {
   return (
     <View>
       <Text>{'Home Screen'}</Text>
