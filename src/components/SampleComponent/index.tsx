@@ -1,15 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { TextInput, TextInputProps, View } from 'react-native';
 import styles from './styles';
-interface Props {
-  text: string;
-}
-const SampleComponent = (props: Props) => {
-  const { text } = props;
+interface Props extends TextInputProps {}
+const InputComponent = (props: Props) => {
+  const { ...restProps } = props;
   return (
-    <View style={styles.component}>
-      <Text>{text}</Text>
+    <View>
+      <TextInput style={styles.input} {...restProps} />
     </View>
   );
 };
-export default SampleComponent;
+export default InputComponent;

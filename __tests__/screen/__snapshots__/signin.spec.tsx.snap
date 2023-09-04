@@ -102,23 +102,25 @@ exports[`Sign In Form Snapshot Renders Correctly and Create Snapshot 1`] = `
               }
             }
           >
-            <TextInput
-              onChangeText={[Function]}
-              placeholder="Username"
-              style={
-                {
-                  "alignSelf": "center",
-                  "borderWidth": 0.5,
-                  "fontSize": 18,
-                  "height": 40,
-                  "marginTop": 8,
-                  "padding": 4,
-                  "width": "80%",
+            <View>
+              <TextInput
+                onChangeText={[Function]}
+                placeholder="Username"
+                style={
+                  {
+                    "alignSelf": "center",
+                    "borderWidth": 0.5,
+                    "fontSize": 18,
+                    "height": 40,
+                    "marginTop": 8,
+                    "padding": 4,
+                    "width": "80%",
+                  }
                 }
-              }
-              testID="Username"
-              value=""
-            />
+                testID="Username"
+                value=""
+              />
+            </View>
             <Text
               style={
                 {
@@ -131,24 +133,26 @@ exports[`Sign In Form Snapshot Renders Correctly and Create Snapshot 1`] = `
               }
               testID="UsernameError"
             />
-            <TextInput
-              onChangeText={[Function]}
-              placeholder="Password"
-              secureTextEntry={true}
-              style={
-                {
-                  "alignSelf": "center",
-                  "borderWidth": 0.5,
-                  "fontSize": 18,
-                  "height": 40,
-                  "marginTop": 8,
-                  "padding": 4,
-                  "width": "80%",
+            <View>
+              <TextInput
+                onChangeText={[Function]}
+                placeholder="Password"
+                secureTextEntry={true}
+                style={
+                  {
+                    "alignSelf": "center",
+                    "borderWidth": 0.5,
+                    "fontSize": 18,
+                    "height": 40,
+                    "marginTop": 8,
+                    "padding": 4,
+                    "width": "80%",
+                  }
                 }
-              }
-              testID="Password"
-              value=""
-            />
+                testID="Password"
+                value=""
+              />
+            </View>
             <Text
               style={
                 {

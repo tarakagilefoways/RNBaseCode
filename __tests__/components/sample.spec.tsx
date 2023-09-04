@@ -5,11 +5,11 @@ import { render } from '@testing-library/react-native';
 
 describe('Sample Componenet Test Suit:', () => {
   test('Renders Correctly and Create Snapshot', () => {
-    const tree = renderer.create(<SampleComponent text="Test" />).toJSON();
+    const tree = renderer.create(<SampleComponent value="Test" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('Get Text Component with `Test` and Check It Exist', () => {
-    const { getByText } = render(<SampleComponent text="Test" />);
-    expect(getByText('Test')).toBeTruthy();
+    const component = render(<SampleComponent value="Test" />);
+    expect(component.getByDisplayValue('Test')).toBeTruthy();
   });
 });

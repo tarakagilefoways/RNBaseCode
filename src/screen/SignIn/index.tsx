@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, Button, Text } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 
 import ScreenNames from '../../constants/screenNames';
@@ -11,6 +11,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { MainStackParamList } from '../../router/root.index';
 
 import styles from './styles';
+import InputComponent from '../../components/SampleComponent';
 
 interface SignInFormData {
   username: string;
@@ -54,9 +55,8 @@ const SignInForm = (props: SignInFormProps) => {
         rules={{ required: 'Username is required' }}
         render={({ field: { onChange, value } }) => {
           return (
-            <TextInput
-              style={styles.input}
-              placeholder="Username"
+            <InputComponent
+              placeholder={'Username'}
               onChangeText={onChange}
               value={value}
               testID={SignInTIDS.Username}
@@ -72,16 +72,17 @@ const SignInForm = (props: SignInFormProps) => {
         name="password"
         defaultValue=""
         rules={{ required: 'Password is required' }}
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            secureTextEntry
-            onChangeText={onChange}
-            value={value}
-            testID={SignInTIDS.Password}
-          />
-        )}
+        render={({ field: { onChange, value } }) => {
+          return (
+            <InputComponent
+              placeholder={'Password'}
+              secureTextEntry
+              onChangeText={onChange}
+              value={value}
+              testID={SignInTIDS.Password}
+            />
+          );
+        }}
       />
       <Text style={styles.error} testID={SignInTIDS.PasswordError}>
         {errors.password?.message}
