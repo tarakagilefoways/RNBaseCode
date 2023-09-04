@@ -1,59 +1,71 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 
-import { SignInTIDS } from '../../types/testIds';
+import ScreenNames from '../../constants/screenNames';
+
+import { SignInTIDS } from '../../constants/testIds';
+import { AppDispatch, useAppDispatch } from '../../store/store.hooks';
+import { LoginApiAction } from '../../service/auth/slice';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { MainStackParamList } from '../../router/root.index';
+
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
-import { RootStoreType, useAppSelector } from '../../store/store.hooks';
 
 interface SignInFormData {
-  email: string;
+  username: string;
   password: string;
 }
-
-const SignInForm = () => {
-  const navigation = useNavigation();
-  const { email, password } = useAppSelector(
-    (state: RootStoreType) => state.auth,
-  );
-
+export type SignInFormProps = NativeStackScreenProps<
+  MainStackParamList,
+  ScreenNames.SignInForm
+>;
+const SignInForm = (props: SignInFormProps) => {
+  const navigation = props.navigation;
+  const dispatch: AppDispatch = useAppDispatch();
   const {
     control,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<SignInFormData>();
 
-  useLayoutEffect(() => {
-    reset({ email: email, password: password });
-    return () => {};
-  }, [email, password, reset]);
+  const [networkError, setNetworkError] = useState('');
 
-  const onSubmit = (data: SignInFormData) => {
-    console.log(data); // You can replace this with your sign-in logic
-    navigation.navigate('Home', {});
+  const onSubmit = async (data: SignInFormData) => {
+    const payload: ILogiInReq = {
+      username: data.username,
+      password: data.password,
+    };
+    const action = await dispatch(LoginApiAction(payload));
+    if (LoginApiAction.fulfilled.match(action)) {
+      navigation.navigate(ScreenNames.Home, {});
+    } else if (LoginApiAction.rejected.match(action)) {
+      const error: string = String(action.payload);
+      setNetworkError(error);
+    }
   };
 
   return (
     <View style={styles.container}>
       <Controller
         control={control}
-        name="email"
+        name="username"
         defaultValue=""
-        rules={{ required: 'Email is required' }}
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            onChangeText={onChange}
-            value={value}
-            testID={SignInTIDS.Email}
-          />
-        )}
+        rules={{ required: 'Username is required' }}
+        render={({ field: { onChange, value } }) => {
+          return (
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              onChangeText={onChange}
+              value={value}
+              testID={SignInTIDS.Username}
+            />
+          );
+        }}
       />
-      <Text style={styles.error} testID={SignInTIDS.EmailError}>
-        {errors.email?.message}
+      <Text style={styles.error} testID={SignInTIDS.UsernameError}>
+        {errors.username?.message}
       </Text>
       <Controller
         control={control}
@@ -79,6 +91,9 @@ const SignInForm = () => {
         onPress={handleSubmit(onSubmit)}
         testID={SignInTIDS.SignIn}
       />
+      <Text style={styles.error} testID={SignInTIDS.NetworkError}>
+        {networkError}
+      </Text>
     </View>
   );
 };

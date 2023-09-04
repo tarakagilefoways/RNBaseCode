@@ -1,10 +1,11 @@
 import React, { PropsWithChildren } from 'react';
 import { PreloadedState, configureStore } from '@reduxjs/toolkit';
-import { RenderOptions, render } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
+import type { RenderOptions } from '@testing-library/react-native';
 import { Provider } from 'react-redux';
+import authReducer from '../service/auth/slice';
 
 import { RootReducerType, RootStoreType } from '../../src/store/store.hooks';
-import rootReducer from '../../src/store/reducer';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootReducerType>;
@@ -15,7 +16,7 @@ const renderWithProviders = (
   ui: React.ReactElement,
   {
     preloadedState = {},
-    store = configureStore({ reducer: rootReducer, preloadedState }),
+    store = configureStore({ reducer: { auth: authReducer }, preloadedState }),
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) => {

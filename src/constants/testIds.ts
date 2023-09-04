@@ -1,8 +1,9 @@
 export const SignInTIDS = {
-  Email: 'Email',
-  EmailError: 'EmailError',
+  Username: 'Username',
+  UsernameError: 'UsernameError',
   Password: 'Password',
   PasswordError: 'PasswordError',
   SignIn: 'Signin',
   LoginText: 'LoginText',
+  NetworkError: 'NetworkError',
 };

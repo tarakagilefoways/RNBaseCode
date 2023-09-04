@@ -1,5 +1,4 @@
-//No Need of Capital Key for this file
-const Language = {
-  Home: 'Home',
+const Color = {
+  Black: '#000',
 };
-export default Language;
+export default Color;

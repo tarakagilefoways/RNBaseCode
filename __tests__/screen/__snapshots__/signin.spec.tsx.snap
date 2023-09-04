@@ -104,7 +104,7 @@ exports[`Sign In Form Snapshot Renders Correctly and Create Snapshot 1`] = `
           >
             <TextInput
               onChangeText={[Function]}
-              placeholder="Email"
+              placeholder="Username"
               style={
                 {
                   "alignSelf": "center",
@@ -116,7 +116,7 @@ exports[`Sign In Form Snapshot Renders Correctly and Create Snapshot 1`] = `
                   "width": "80%",
                 }
               }
-              testID="Email"
+              testID="Username"
               value=""
             />
             <Text
@@ -129,7 +129,7 @@ exports[`Sign In Form Snapshot Renders Correctly and Create Snapshot 1`] = `
                   "width": "80%",
                 }
               }
-              testID="EmailError"
+              testID="UsernameError"
             />
             <TextInput
               onChangeText={[Function]}
@@ -220,6 +220,18 @@ exports[`Sign In Form Snapshot Renders Correctly and Create Snapshot 1`] = `
                 </Text>
               </View>
             </View>
+            <Text
+              style={
+                {
+                  "alignSelf": "center",
+                  "fontSize": 18,
+                  "marginTop": 8,
+                  "padding": 4,
+                  "width": "80%",
+                }
+              }
+              testID="NetworkError"
+            />
           </View>
         </View>
       </View>

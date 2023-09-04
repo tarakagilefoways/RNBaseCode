@@ -1,6 +1,5 @@
-import {
+import authReducer, {
   IAuthSlice,
-  authReducer,
   loaderChange,
 } from '../../src/service/auth/slice';
 
@@ -8,10 +7,16 @@ describe('authSlice reducer', () => {
   it('should handle loaderChange', () => {
     const initialState: IAuthSlice = {
       isLoading: false,
+      email: '',
+      password: '',
+      token: '',
     };
 
     const nextState = {
       isLoading: true,
+      email: '',
+      password: '',
+      token: '',
     };
 
     const action = loaderChange(nextState.isLoading);
